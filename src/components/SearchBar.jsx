@@ -21,7 +21,14 @@ function SearchBar({ onSearch }) {
         placeholder="Search for a movie..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        sx={{ maxWidth: "400px", backgroundColor: "white", borderRadius: "8px" }}
+        sx={{
+          maxWidth: "400px",
+          backgroundColor: "white",
+          borderRadius: "8px",
+          "& .MuiInputBase-input": {
+            color: "black",
+          },
+        }}
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
