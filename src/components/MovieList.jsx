@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchTrendingMovies, searchMovies } from "../services/movieService";
 import MovieCard from "./MovieCard";
-
-const handleSearch = async (query) => {
-  const searchResults = await searchMovies(query);
-  setMovies(searchResults);
-};
+import SearchBar from "./SearchBar";
 
 function MovieList() {
   const [movies, setMovies] = useState([]);
@@ -18,9 +14,14 @@ function MovieList() {
     getMovies();
   }, []);
 
+  const handleSearch = async (query) => {
+    const searchResults = await searchMovies(query);
+    setMovies(searchResults);
+  };
+
   return (
     <div className="container">
-      <h2>Trending Movies</h2>
+      <SearchBar onSearch={handleSearch} />
       <div className="row">
         {movies.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
