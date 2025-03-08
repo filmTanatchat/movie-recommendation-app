@@ -1,14 +1,16 @@
 import React from "react";
-import MovieList from "./components/MovieList";
-import SearchBar from "./components/SearchBar";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import MovieDetails from "./components/MovieDetails";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div className="App container">
-      <h1 className="text-center mt-3">Movie Recommendation App 🎬</h1>
-      <SearchBar />
-      <MovieList />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movie/:id" element={<MovieDetails />} />
+      </Routes>
+    </Router>
   );
 }
 
