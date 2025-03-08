@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function MovieCard({ movie }) {
   return (
@@ -8,6 +9,7 @@ function MovieCard({ movie }) {
         <div className="card-body">
           <h5 className="card-title">{movie.title}</h5>
           <p className="card-text">⭐ {movie.vote_average}/10</p>
+          <Link to={`/movie/${movie.id}`} className="btn btn-primary">Details</Link>
         </div>
       </div>
     </div>
