@@ -8,7 +8,9 @@ function MovieDetails() {
 
   useEffect(() => {
     async function getMovie() {
+      console.log("Fetching details for movie ID:", id); // Debugging
       const movieData = await fetchMovieDetails(id);
+      console.log("Received movie data:", movieData); // Debugging
       setMovie(movieData);
     }
     getMovie();
