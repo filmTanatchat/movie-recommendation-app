@@ -5,7 +5,7 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import MovieDetails from "./components/MovieDetails";
 import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
-import QuestionnairePage from "./pages/Questionnaire";
+import QuestionnairePage from "./pages/QuestionnairePage";
 
 const darkTheme = createTheme({
   palette: {
