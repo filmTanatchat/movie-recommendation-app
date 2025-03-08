@@ -12,3 +12,11 @@ export async function searchMovies(query) {
   const data = await response.json();
   return data.results;
 }
+
+export async function fetchMovieDetails(movieId) {
+  const response = await fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch movie details");
+  }
+  return response.json();
+}
