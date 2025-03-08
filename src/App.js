@@ -3,9 +3,9 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import React from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import MovieDetails from "./components/MovieDetails";
-import NavBar from "./components/NavBar"; // Ensure NavBar exists
+import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
-import QuestionnairePage from "./pages/QuestionnairePage";
+import QuestionnairePage from "./pages/Questionnaire";
 
 const darkTheme = createTheme({
   palette: {
