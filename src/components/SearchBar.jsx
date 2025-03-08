@@ -1,5 +1,5 @@
 import SearchIcon from "@mui/icons-material/Search";
-import { IconButton, InputAdornment, TextField } from "@mui/material";
+import { Box, Button, InputAdornment, TextField } from "@mui/material";
 import React, { useState } from "react";
 
 function SearchBar({ onSearch }) {
@@ -7,33 +7,35 @@ function SearchBar({ onSearch }) {
 
   const handleSearch = () => {
     if (query.trim() !== "") {
+      console.log("User searched for:", query); // Debugging
       onSearch(query);
     }
   };
 
   return (
-    <TextField
-      fullWidth
-      variant="outlined"
-      placeholder="Search for a movie..."
-      value={query}
-      onChange={(e) => setQuery(e.target.value)}
-      onKeyPress={(e) => e.key === "Enter" && handleSearch()}
-      sx={{ 
-        my: 2,
-        backgroundColor: "white", 
-        borderRadius: "8px",
-      }}
-      InputProps={{
-        endAdornment: (
-          <InputAdornment position="end">
-            <IconButton onClick={handleSearch}>
+    <Box display="flex" alignItems="center" justifyContent="center" gap={2} sx={{ my: 3 }}>
+      {/* Search Input Field */}
+      <TextField
+        fullWidth
+        variant="outlined"
+        placeholder="Search for a movie..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        sx={{ maxWidth: "400px", backgroundColor: "white", borderRadius: "8px" }}
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="start">
               <SearchIcon />
-            </IconButton>
-          </InputAdornment>
-        ),
-      }}
-    />
+            </InputAdornment>
+          ),
+        }}
+      />
+
+      {/* Search Button */}
+      <Button variant="contained" color="primary" onClick={handleSearch}>
+        Search
+      </Button>
+    </Box>
   );
 }
 
