@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +70,19 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Movie Recommendation App 🎬
+
+## 📌 Features
+
+- ค้นหาและแสดงหนังจาก TMDb API 🎥
+- ให้คะแนนหนังและบันทึกไว้ใน LocalStorage ⭐
+- แนะนำหนังที่คล้ายกัน 📝
+
+## 🚀 Getting Started
+
+1. Clone โปรเจกต์
+   ```bash
+   git clone https://github.com/yourusername/movie-recommendation-app.git
+   cd movie-recommendation-app
+   ```

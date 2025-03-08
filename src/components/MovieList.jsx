@@ -8,18 +8,21 @@ function MovieList() {
   useEffect(() => {
     async function getMovies() {
       const moviesData = await fetchTrendingMovies();
-      setMovies(moviesData);
+      console.log("Movies Loaded:", moviesData);
+      if (moviesData) setMovies(moviesData);
     }
     getMovies();
   }, []);
 
   return (
     <div className="container">
-      <h2>Trending Movies</h2>
+      <h2 className="my-4">Trending Movies</h2>
       <div className="row">
-        {movies.map((movie) => (
-          <MovieCard key={movie.id} movie={movie} />
-        ))}
+        {movies.length > 0 ? (
+          movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+        ) : (
+          <p className="text-center">❌ No movies found. Check API Key.</p>
+        )}
       </div>
     </div>
   );
