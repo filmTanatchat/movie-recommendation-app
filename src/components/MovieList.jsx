@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { fetchTrendingMovies } from "../services/movieService";
+import { fetchTrendingMovies, searchMovies } from "../services/movieService";
 import MovieCard from "./MovieCard";
+
+const handleSearch = async (query) => {
+  const searchResults = await searchMovies(query);
+  setMovies(searchResults);
+};
 
 function MovieList() {
   const [movies, setMovies] = useState([]);

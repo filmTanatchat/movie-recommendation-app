@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useState } from "react";
 
-function SearchBar({ searchTerm, setSearchTerm }) {
-  const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
+function SearchBar({ onSearch }) {
+  const [query, setQuery] = useState("");
+
+  const handleSearch = () => {
+    if (query.trim() !== "") {
+      onSearch(query);
+    }
   };
 
   return (
-    <div>
+    <div className="mb-4">
       <input
         type="text"
-        value={searchTerm}
-        onChange={handleInputChange}
-        placeholder="Search data..."
+        className="form-control"
+        placeholder="Search movies..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
       />
+      <button className="btn btn-primary mt-2" onClick={handleSearch}>Search</button>
     </div>
   );
 }
