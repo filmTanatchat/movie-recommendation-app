@@ -23,9 +23,8 @@ export async function searchMovies(query) {
 }
 
 export async function fetchMovieDetails(movieId) {
-  const response = await fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`);
+  const response = await fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}&append_to_response=credits`);
   
-  console.log("Fetching movie details for ID:", movieId); // Debugging
   if (!response.ok) {
     console.error("Failed to fetch movie details:", response.statusText);
     return null;
