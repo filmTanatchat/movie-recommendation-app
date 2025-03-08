@@ -1,3 +1,5 @@
+import SearchIcon from "@mui/icons-material/Search";
+import { IconButton, InputAdornment, TextField } from "@mui/material";
 import React, { useState } from "react";
 
 function SearchBar({ onSearch }) {
@@ -10,16 +12,28 @@ function SearchBar({ onSearch }) {
   };
 
   return (
-    <div className="mb-4">
-      <input
-        type="text"
-        className="form-control"
-        placeholder="Search movies..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button className="btn btn-primary mt-2" onClick={handleSearch}>Search</button>
-    </div>
+    <TextField
+      fullWidth
+      variant="outlined"
+      placeholder="Search for a movie..."
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+      onKeyPress={(e) => e.key === "Enter" && handleSearch()}
+      sx={{ 
+        my: 2,
+        backgroundColor: "white", 
+        borderRadius: "8px",
+      }}
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position="end">
+            <IconButton onClick={handleSearch}>
+              <SearchIcon />
+            </IconButton>
+          </InputAdornment>
+        ),
+      }}
+    />
   );
 }
 
