@@ -2,6 +2,10 @@ import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@
 import React from "react";
 import { Link } from "react-router-dom";
 
+function truncateTitle(title, maxLength) {
+  return title.length > maxLength ? title.substring(0, maxLength) + "..." : title;
+}
+
 function MovieCard({ movie }) {
   return (
     <Card 
@@ -23,9 +27,13 @@ function MovieCard({ movie }) {
         image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
         alt={movie.title}
       />
-      <CardContent>
-        <Typography variant="h6" fontWeight="bold">{movie.title}</Typography>
-        <Typography variant="body2" color="text.secondary">{movie.vote_average} ⭐</Typography>
+      <CardContent sx={{ textAlign: "center", height: "60px", overflow: "hidden" }}>
+        <Typography variant="h6" fontWeight="bold">
+          {truncateTitle(movie.title, 20)}  {/*Truncate title to max 20 chars */}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          ⭐ {movie.vote_average}
+        </Typography>
       </CardContent>
       <CardActions>
         <Link to={`/movie/${movie.id}`} style={{ textDecoration: "none", width: "100%" }}>
