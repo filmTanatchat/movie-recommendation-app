@@ -8,8 +8,17 @@ export async function fetchTrendingMovies() {
 }
 
 export async function searchMovies(query) {
+  console.log("Searching movies for query:", query);
+  console.log("Using API Key:", API_KEY); // Debugging API Key
+
   const response = await fetch(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${query}`);
+  if (!response.ok) {
+    console.error("Error fetching search results:", response.statusText);
+    return [];
+  }
+  
   const data = await response.json();
+  console.log("Search Results:", data.results); // Debugging
   return data.results;
 }
 
