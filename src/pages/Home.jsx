@@ -9,13 +9,16 @@ function Home() {
   useEffect(() => {
     async function getMovies() {
       const moviesData = await fetchTrendingMovies();
+      console.log("Trending Movies Loaded:", moviesData); // Debugging
       setMovies(moviesData);
     }
     getMovies();
   }, []);
 
   const handleSearch = async (query) => {
+    console.log("User searched for:", query); // Debugging
     const searchResults = await searchMovies(query);
+    console.log("Updating state with search results:", searchResults); // Debugging
     setMovies(searchResults);
   };
 
